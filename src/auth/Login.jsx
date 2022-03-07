@@ -1,13 +1,13 @@
-import React, {useRef, useState, useEffect, useContext} from 'react'
+import React, {useState, useEffect} from 'react'
 import axio from "../api/axio"
 import auth from './auth.css'
-import AuthContext from '../api/AuthProvider'
+import useAuth from '../api/useAuth'
 
 const LOGIN_URL = "/users/login"
 
 function Login() {
 
-    const {setAuth} = useContext(AuthContext)
+    const {setAuth} = useAuth()
     const [username, setUsername] = useState("")
     const [orgname, setOrgname] = useState("")
     const [err, setErr] = useState(null)
@@ -53,10 +53,10 @@ function Login() {
                 onChange={(e) => setUsername(e.target.value)}
              />
              <div className='radio-div'>
-                <label>Org1</label>
                  <input type="radio" name='orgname' value="Org1" onChange={(e) => setOrgname(e.target.value)}/>
-                <label>Org2</label>
+                <label>Org1</label>
                  <input type="radio" name='orgname' value="Org2" onChange={(e) => setOrgname(e.target.value)}/>
+                <label>Org2</label>
              </div>
             <button>Login</button>
         </form>
