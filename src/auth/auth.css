@@ -1,0 +1,13 @@
+.container{
+    color: whitesmoke;
+}
+
+.form{
+    height: auto;
+    border: 2px solid gray;
+    color: white;
+}
+
+a{
+    color: gray;
+}

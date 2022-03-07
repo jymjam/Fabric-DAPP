@@ -1,9 +1,10 @@
 import React, {useRef, useState, useEffect} from 'react'
 import axio from "../api/axio"
+import auth from './auth.css'
 
-const REGISTER_URL = "/users"
+const LOGIN_URL = "/users/login"
 
-function Register() {
+function Login() {
 
     const [username, setUsername] = useState("")
     const [orgname, setOrgname] = useState("")
@@ -25,7 +26,7 @@ function Register() {
     const formSubmit = async (e) => {
         e.preventDefault()
         try{
-            const response = await axio.post(REGISTER_URL, {
+            const response = await axio.post(LOGIN_URL, {
                 username: username,
                 orgName: orgname
             })
@@ -43,20 +44,20 @@ function Register() {
     }
 
     return (
-      <section>
-        <h1>Register</h1>
-        { err && (<h4>Registration Failed!</h4>)}
-        <form onSubmit={formSubmit}>
+      <section className='container'>
+        <h1>Login</h1>
+        { err && (<h4>Login Failed!</h4>)}
+        <form onSubmit={formSubmit} className="form">
             <input type="text" name='username' placeholder='Enter username' required autoComplete='off' 
                 onChange={(e) => setUsername(e.target.value)}
              />
-             <div>
+             <div className='radio-div'>
                 <label>Org1</label>
                  <input type="radio" name='orgname' value="Org1" onChange={(e) => setOrgname(e.target.value)}/>
                 <label>Org2</label>
                  <input type="radio" name='orgname' value="Org2" onChange={(e) => setOrgname(e.target.value)}/>
              </div>
-            <button>Signup</button>
+            <button>Login</button>
         </form>
         <p>
             Have an account?
@@ -69,4 +70,4 @@ function Register() {
     )
 }
 
-export default Register
+export default Login
