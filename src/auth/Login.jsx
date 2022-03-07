@@ -1,18 +1,16 @@
-import React, {useRef, useState, useEffect} from 'react'
+import React, {useRef, useState, useEffect, useContext} from 'react'
 import axio from "../api/axio"
 import auth from './auth.css'
+import AuthContext from '../api/AuthProvider'
 
 const LOGIN_URL = "/users/login"
 
 function Login() {
 
+    const {setAuth} = useContext(AuthContext)
     const [username, setUsername] = useState("")
     const [orgname, setOrgname] = useState("")
     const [err, setErr] = useState(null)
-
-    useEffect(() => {
-        
-    },[])
 
     useEffect(() => {
         setUsername(username)
@@ -36,9 +34,12 @@ function Login() {
                 return;
             }
             setErr(false)
+            const accessToken = response?.data?.message?.token
+            setAuth({username, accessToken})
         }catch(err){
             if(!err?.response){ //throws err if server down
                 setErr(true)
+                console.error('server timed out :(')
             }
         }
     }

@@ -10,10 +10,6 @@ function Register() {
     const [err, setErr] = useState(null)
 
     useEffect(() => {
-        
-    },[])
-
-    useEffect(() => {
         setUsername(username)
     },[username])
 

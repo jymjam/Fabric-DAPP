@@ -1,3 +1,5 @@
+//provides auth context app-wide
+// useful for providing authtoken app-wide
 import { createContext, useState } from "react";
 
 const AuthContext = createContext({})
