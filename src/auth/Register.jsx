@@ -1,5 +1,6 @@
 import React, {useRef, useState, useEffect} from 'react'
 import axio from "../api/axio"
+import "./auth.css"
 
 const REGISTER_URL = "/users"
 
@@ -41,16 +42,16 @@ function Register() {
     return (
       <section>
         <h1>Register</h1>
-        { err && (<h4>Registration Failed!</h4>)}
+        { err && (<h4 className='dangerText'>Registration Failed!</h4>)}
         <form onSubmit={formSubmit}>
             <input type="text" name='username' placeholder='Enter username' required autoComplete='off' 
                 onChange={(e) => setUsername(e.target.value)}
              />
              <div>
-                <label>Org1</label>
                  <input type="radio" name='orgname' value="Org1" onChange={(e) => setOrgname(e.target.value)}/>
-                <label>Org2</label>
+                <label>Org1</label>
                  <input type="radio" name='orgname' value="Org2" onChange={(e) => setOrgname(e.target.value)}/>
+                <label>Org2</label>
              </div>
             <button>Signup</button>
         </form>

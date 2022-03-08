@@ -7,13 +7,14 @@ import Register from './auth/Register';
 import Login from './auth/Login';
 import Home from './components/Home'
 import RequiredAuth from './api/RequiredAuth';
+import Profile from './components/Profile';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         {/*public routes*/}
-        <Route path='/login' element={<Login />}/>
+        <Route  path='/login' element={<Login />}/>
         <Route path='/register' element={<Register />}/>
 
         {/*protected routes*/}

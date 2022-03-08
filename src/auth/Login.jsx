@@ -33,7 +33,7 @@ function Login() {
                 username: username,
                 orgName: orgname
             })
-            console.log(String(response.data.success))
+            console.log(response.data)
             if ( String(response.data.success) === "false" ){
                 setErr(true)
                 return;
@@ -53,7 +53,7 @@ function Login() {
     return (
       <section className='container'>
         <h1>Login</h1>
-        { err && (<h4>Login Failed!</h4>)}
+        { err && (<h4 className='dangerText'>Login Failed!</h4>)}
         <form onSubmit={formSubmit} className="form">
             <input type="text" name='username' placeholder='Enter username' required autoComplete='off' 
                 onChange={(e) => setUsername(e.target.value)}
@@ -67,7 +67,7 @@ function Login() {
             <button>Login</button>
         </form>
         <p>
-            Don't have an account?
+            Don't have an account? 
             <span>
                 {/*react router will go here*/}
                 <a href='/register'>Signup</a>
