@@ -58,7 +58,7 @@ function Register() {
             Have an account?
             <span>
                 {/*react router will go here*/}
-                <a href='#'>Login</a>
+                <a href='/login'>Login</a>
             </span>
         </p>
       </section>

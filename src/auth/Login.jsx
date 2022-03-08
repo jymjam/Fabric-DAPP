@@ -2,12 +2,17 @@ import React, {useState, useEffect} from 'react'
 import axio from "../api/axio"
 import auth from './auth.css'
 import useAuth from '../api/useAuth'
+import {Link, useNavigate, useLocation} from 'react-router-dom'
 
 const LOGIN_URL = "/users/login"
 
 function Login() {
 
     const {setAuth} = useAuth()
+    const navigate = useNavigate()
+    // const location = useLocation()
+    // const from = location.state?.from?.pathname || "/"
+
     const [username, setUsername] = useState("")
     const [orgname, setOrgname] = useState("")
     const [err, setErr] = useState(null)
@@ -36,6 +41,7 @@ function Login() {
             setErr(false)
             const accessToken = response?.data?.message?.token
             setAuth({username, accessToken})
+            navigate("/home", {replace: true})
         }catch(err){
             if(!err?.response){ //throws err if server down
                 setErr(true)
@@ -61,10 +67,10 @@ function Login() {
             <button>Login</button>
         </form>
         <p>
-            Have an account?
+            Don't have an account?
             <span>
                 {/*react router will go here*/}
-                <a href='#'>Login</a>
+                <a href='/register'>Signup</a>
             </span>
         </p>
       </section>
