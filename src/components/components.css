@@ -1,0 +1,20 @@
+.home_header{
+    background-color: rgb(46, 45, 45);
+    color: whitesmoke;
+    height: auto;
+}
+
+.home_child_component{
+    border: 1px solid rgb(223, 223, 223);
+    height: auto;
+    align-self: center;
+}
+
+.profileName{
+    flex-direction: column;
+}
+
+.display{
+    background-color: rgb(44, 44, 44);
+    color: rgb(160, 160, 160);
+}

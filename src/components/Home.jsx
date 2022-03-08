@@ -1,24 +1,29 @@
 import React, { useState, useEffect } from 'react'
-import AddCar from './QueryCarByID'
+import "./components.css"
+import QueryCarByID from './QueryCarByID'
 import Profile from './Profile'
 
 function Home() {
 
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState({
+    profile: true,
+    queryCarByID: false,
+    addCar: false
+  })
   const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDY4MDcxNDYsInVzZXJuYW1lIjoiemVuIiwib3JnTmFtZSI6Ik9yZzIiLCJpYXQiOjE2NDY3NzExNDZ9.h4t56W0_baFtSkVqYcoII9pzJbpNTGeqasJ_iRtsNYA" 
 
   return (
     <div>
-        <h1>Welcome Home</h1>
         <div className='home_header'>
-          <button>Profile</button>
-          <button>AddCars</button>
-          <button>ShowTx</button>
+          <h1>Welcome Home</h1>
+          <button onClick={() => {setPage({profile: true, queryCarByID: false, addCar: false})}}>Profile</button>
+          <button onClick={() => {setPage({profile: false, queryCarByID: true, addCar: false})}}>QueryCarByID</button>
+          <button onClick={() => {setPage({profile: true, queryCarByID: false, addCar: true})}}>logout</button>
         </div>
+        <hr/>
         <div className='container' >
-          <Profile accessToken={accessToken}/>
-          <hr></hr>
-          <AddCar accessToken={accessToken}/>
+          {page.profile && <Profile accessToken={accessToken}/>}
+          {page.queryCarByID && <QueryCarByID accessToken={accessToken}/>}
         </div>
     </div>
   )
