@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axio from "../api/axio"
 import auth from './auth.css'
 import useAuth from '../api/useAuth'
-import {Link, useNavigate, useLocation} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 const LOGIN_URL = "/users/login"
 
@@ -41,7 +41,8 @@ function Login() {
             setErr(false)
             const accessToken = response?.data?.message?.token
             setAuth({username, accessToken})
-            navigate("/home", {replace: true})
+            // navigate("/home", {replace: true})
+            navigate("/home", {state: accessToken})
         }catch(err){
             if(!err?.response){ //throws err if server down
                 setErr(true)

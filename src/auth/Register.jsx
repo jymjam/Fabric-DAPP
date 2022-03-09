@@ -1,4 +1,5 @@
 import React, {useRef, useState, useEffect} from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
 import axio from "../api/axio"
 import "./auth.css"
 
@@ -9,6 +10,7 @@ function Register() {
     const [username, setUsername] = useState("")
     const [orgname, setOrgname] = useState("")
     const [err, setErr] = useState(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         setUsername(username)
@@ -32,6 +34,7 @@ function Register() {
                 return;
             }
             setErr(false)
+            navigate('/login')
         }catch(err){
             if(!err?.response){ //throws err if server down
                 setErr(true)

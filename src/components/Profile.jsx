@@ -10,7 +10,7 @@ function Profile({accessToken}) {
     try{
       return JSON.parse(atob(token.split('.')[1]))
     }catch(err){
-      console.error(err)
+      console.error("access token error")
     }
   }
 

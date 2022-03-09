@@ -40,7 +40,7 @@ function QueryCarByID({accessToken}) {
     <div className='home_child_component'>
         <h1>Query Cars By ID</h1>
         <form onSubmit={formSubmit}>
-            { err && <h4>Something went fong</h4>}
+            { err && <h4 className='dangerText'>Something went fong</h4>}
             <input type='text' placeholder='enter Car ID' onChange={(e) => setCarID(e.target.value)}/>
             <button>Query</button>
         </form>
