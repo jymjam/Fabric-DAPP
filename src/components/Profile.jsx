@@ -25,6 +25,8 @@ function Profile({accessToken}) {
         <h1>User Profile</h1>
         <div className="profileName"><p>Name: </p><p>{username}</p></div>
         <div className="profileAff"><p>Affiliation:</p> <p>{orgname}</p></div>
+
+        <button onClick={() => {console.log(accessToken)}}>Display Token</button>
     </div>
   )
 }

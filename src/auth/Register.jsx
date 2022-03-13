@@ -1,5 +1,5 @@
-import React, {useRef, useState, useEffect} from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import React, {useState, useEffect} from 'react'
+import {useNavigate } from 'react-router-dom'
 import axio from "../api/axio"
 import "./auth.css"
 
@@ -43,7 +43,7 @@ function Register() {
     }
 
     return (
-      <section>
+      <section className='container'>
         <h1>Register</h1>
         { err && (<h4 className='dangerText'>Registration Failed!</h4>)}
         <form onSubmit={formSubmit}>
@@ -61,7 +61,6 @@ function Register() {
         <p>
             Have an account?
             <span>
-                {/*react router will go here*/}
                 <a href='/login'>Login</a>
             </span>
         </p>

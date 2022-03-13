@@ -3,7 +3,7 @@ import axio from '../api/axio'
 import './components.css'
 
 
-function QueryCarByID({accessToken}) {
+function AddCar({accessToken}) {
 
     const [carID, setCarID] = useState("")
     const [org, setOrg] = useState(2)
@@ -27,7 +27,8 @@ function QueryCarByID({accessToken}) {
     const formSubmit = async(e) => {
         e.preventDefault()
         try{
-            const response = await axio.get(`/channels/mychannel/chaincodes/fabcar?args=["${carID}"]&peer=peer0.org${org}.example.com&fcn=queryCar`)
+            const response = await axio.get(`/channels/mychannel/chaincodes/fabcar`)
+            console.log(response.data)
             setResponse(JSON.stringify(response.data.result, null,1))
         }catch(err){
             setErr(true)
@@ -53,4 +54,4 @@ function QueryCarByID({accessToken}) {
   )
 }
 
-export default QueryCarByID
+export default AddCar
