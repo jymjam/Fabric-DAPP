@@ -6,7 +6,7 @@ function AssetHistory({carID, accessToken}) {
 
   const format = [
     {
-      TxId: "abcdefghijlk",
+      TxId: null,
             Value: {
                 make: "make1",
                 model: "model1",
@@ -17,7 +17,7 @@ function AssetHistory({carID, accessToken}) {
             IsDelete: "false"
     },
     {
-      TxId: "uvwxyz",
+      TxId: "tx1",
             Value: {
                 make: "make2",
                 model: "model2",
@@ -30,7 +30,6 @@ function AssetHistory({carID, accessToken}) {
   ]
   
   const [assetHistory, setAssetHistory] = useState(format)
-  const [showHistory, setShowHistory] = useState(false)
 
   // useEffect(() => {
   //   // console.log(carID, accessToken, assetHistory, showHistory)
@@ -51,20 +50,18 @@ function AssetHistory({carID, accessToken}) {
       const response = await axio.get(`/channels/mychannel/chaincodes/fabcar?args=["sedan"]&peer=peer0.org1.example.com&fcn=getHistoryForAsset`)
       setAssetHistory(response.data.result)
       console.log("Updated Asset details:", assetHistory)
-      setShowHistory(true)
     }catch(err){
       console.error("sum ting ven fong")
-      setShowHistory(false)
     }
   }
 
   return (
     <div>
       <h2>Asset History</h2>
-      <button onClick={fetchHistory}>fetct History</button>
+      <button className='homebtn' onClick={fetchHistory}>fetct History</button>
       <pre>
         <div>
-          {
+          { assetHistory[0].TxId? (
             assetHistory.map(function(e, index){
               return (
             <ul className='historyCard' key={e.TxId}>
@@ -80,6 +77,7 @@ function AssetHistory({carID, accessToken}) {
              </ul>
               ) 
             })
+          ):(null)
           }
         </div>
       </pre>

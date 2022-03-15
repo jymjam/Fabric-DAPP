@@ -24,12 +24,12 @@ function Profile({accessToken}) {
   return (
     <div className='home_child_component'>
         <h1>User Profile</h1>
-        <div className="profileName"><span>Name: </span> {username}</div>
-        <div className="profileAff"><span>Department:</span> {orgname}</div>
+        <div className="profileName"><span>Name: </span><span className='userinfo'> {username}</span> </div>
+        <div className="profileAff"><span>Department:</span><span className='userinfo'> {orgname}</span> </div>
 
-        <button onClick={() => setShowToken(!showToken)}>{!showToken ? (<span>show Token</span>):(<span>Hide Token</span>)}</button>
+        <button className='tokenBtn' onClick={() => setShowToken(!showToken)}>{!showToken ? (<span>show Token</span>):(<span>Hide Token</span>)}</button>
         {showToken ? (
-          <pre>
+          <pre className='wraptoken'>
             {accessToken}
           </pre>
         ) : (null)}

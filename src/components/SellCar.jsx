@@ -47,9 +47,9 @@ function QueryCarByID({accessToken}) {
         <h1>Sell Car</h1>
         <form onSubmit={formSubmit}>
             { err && <h4 className='dangerText'>Something went fong</h4>}
-            <input required type='text' placeholder='enter Car ID' onChange={(e) => setCarID(e.target.value)}/>
-            <input required type='text' placeholder="New owner's name" onChange={(e) => setOwnerName(e.target.value)}/>
-            <button>Sell</button>
+            <input className='homebtn' required type='text' placeholder='enter Car ID' onChange={(e) => setCarID(e.target.value)}/>
+            <input className='homebtn' required type='text' placeholder="New owner's name" onChange={(e) => setOwnerName(e.target.value)}/>
+            <button className='homebtn'>Sell</button>
         </form>
         <div className='display'>
         <pre>

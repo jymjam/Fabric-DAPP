@@ -1,5 +1,4 @@
 .home_header{
-    background-color: rgb(46, 45, 45);
     color: whitesmoke;
     height: auto;
 }
@@ -10,8 +9,25 @@
     align-self: center;
 }
 
+.homebtn{
+    margin: 3px;
+}
+
 .homePageBtns{
     justify-content: space-between;
+}
+
+.tokenBtn{
+    margin: 40px;
+}
+
+.container{
+    margin: 65px
+}
+
+.wraptoken{
+    overflow: hidden;
+    overflow-wrap: break-all;
 }
 
 .dangerText{
@@ -28,5 +44,15 @@
 }
 
 .historyCard{
-    color: brown;
+    color: rgb(199, 54, 54);
+}
+
+.userinfo{
+    color: peru;
+    text-decoration: double;
+}
+
+.addCarInfo{
+    color: rgb(241, 4, 241);
+    text-decoration: wavy;
 }

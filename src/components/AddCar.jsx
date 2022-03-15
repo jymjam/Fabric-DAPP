@@ -51,17 +51,18 @@ function AddCar({accessToken, ownerName}) {
         <h1>Add New Car</h1>
         <form onSubmit={formSubmit}>
             { err && <h4 className='dangerText'>Something vent fong</h4>}
-            <input type='text' placeholder='enter Car ID' onChange={(e) => setCarID(e.target.value)}/>
-            <input type='text' placeholder='Car Maker' onChange={(e) => setCarInfo({...carInfo, make: e.target.value})}/>
-            <input type='text' placeholder='Car Model' onChange={(e) => setCarInfo({...carInfo, model: e.target.value})}/>
-            <input type='text' placeholder='Car color' onChange={(e) => setCarInfo({...carInfo, color: e.target.value})}/>
-            <button>Submit</button>
+            <input className='homebtn' type='text' placeholder='enter Car ID' onChange={(e) => setCarID(e.target.value)}/>
+            <input className='homebtn' type='text' placeholder='Car Maker' onChange={(e) => setCarInfo({...carInfo, make: e.target.value})}/>
+            <input className='homebtn' type='text' placeholder='Car Model' onChange={(e) => setCarInfo({...carInfo, model: e.target.value})}/>
+            <input className='homebtn' type='text' placeholder='Car color' onChange={(e) => setCarInfo({...carInfo, color: e.target.value})}/>
+            <button className='homebtn'>Submit</button>
+            <button className='homebtn'>Clear</button>
         </form>
         <pre>
-            [car ID: {carID} # 
-            make: {carInfo.make} | 
-            model: {carInfo.model} | 
-            color: {carInfo.color} ]
+            [car ID:<span className='addCarInfo'> {carID}</span> # 
+            make:<span className='addCarInfo'> {carInfo.make}</span> | 
+            model:<span className='addCarInfo'> {carInfo.model}</span> | 
+            color:<span className='addCarInfo'> {carInfo.color}</span> ]
         </pre>
         <div className='display'>
         <pre>

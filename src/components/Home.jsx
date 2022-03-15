@@ -41,15 +41,14 @@ function Home(state) {
   return (
     <div>
         <div className='home_header'>
-        <h1>Welcome Home</h1>
+        <h1>Fabric Dapp v3.2</h1> <p>Logged In as: {username}</p>
         <div className='homePageBtns'>
-            <button onClick={() => {setPage({profile: true, queryCarByID: false, addCar: false, sellCar: false})}}>User Profile</button>
-            <button onClick={() => {setPage({profile: false, queryCarByID: true, addCar: false, sellCar: false})}}>QueryCarByID</button>
-            <button onClick={() => {setPage({profile: false, queryCarByID: false, addCar: true, sellCar: false})}}>Add Car</button>
-            <button onClick={() => {setPage({profile: false, queryCarByID: false, addCar: false, sellCar: true})}}>Sell Car</button>
+            <button className='homebtn' onClick={() => {setPage({profile: true, queryCarByID: false, addCar: false, sellCar: false})}}>User Profile</button>
+            <button className='homebtn' onClick={() => {setPage({profile: false, queryCarByID: true, addCar: false, sellCar: false})}}>QueryCarByID</button>
+            <button className='homebtn' onClick={() => {setPage({profile: false, queryCarByID: false, addCar: true, sellCar: false})}}>Add Car</button>
+            <button className='homebtn' onClick={() => {setPage({profile: false, queryCarByID: false, addCar: false, sellCar: true})}}>Sell Car</button>
         </div>
         </div>
-        <hr/>
         <div className='container' >
           {page.profile && <Profile accessToken={accessToken}/>}
           {page.queryCarByID && <QueryCarByID accessToken={accessToken}/>}

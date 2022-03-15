@@ -41,7 +41,7 @@ function QueryCarByID({accessToken}) {
         <form onSubmit={formSubmit}>
             { err && <h4 className='dangerText'>Something went fong</h4>}
             <input type='text' placeholder='enter Car ID' onChange={(e) => setCarID(e.target.value)}/>
-            <button>Query</button>
+            <button className='homebtn'>Query</button>
         </form>
         <div className='display'>
         <pre>
