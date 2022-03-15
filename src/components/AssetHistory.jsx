@@ -29,8 +29,10 @@ function AssetHistory({carID, accessToken}) {
     }
   ]
   
+  const [carid, setCarid] = useState(carID)
   const [assetHistory, setAssetHistory] = useState(format)
 
+    useEffect(() => {}, [carid])
   // useEffect(() => {
   //   // console.log(carID, accessToken, assetHistory, showHistory)
   // }, [carID, accessToken, showHistory])
@@ -47,7 +49,7 @@ function AssetHistory({carID, accessToken}) {
  const fetchHistory = async(e) => {
    e.preventDefault()
     try{
-      const response = await axio.get(`/channels/mychannel/chaincodes/fabcar?args=["sedan"]&peer=peer0.org1.example.com&fcn=getHistoryForAsset`)
+      const response = await axio.get(`/channels/mychannel/chaincodes/fabcar?args=["${carid}"]&peer=peer0.org1.example.com&fcn=getHistoryForAsset`)
       setAssetHistory(response.data.result)
       console.log("Updated Asset details:", assetHistory)
     }catch(err){
@@ -61,15 +63,16 @@ function AssetHistory({carID, accessToken}) {
       <button className='homebtn' onClick={fetchHistory}>fetct History</button>
       <pre>
         <div>
+        { carid && (<p>Showing results for: {carid}</p>)}
           { assetHistory[0].TxId? (
             assetHistory.map(function(e, index){
               return (
             <ul className='historyCard' key={e.TxId}>
               <ul>
                 <li>owner: {e.Value.owner}</li>
-                <li>owner: {e.Value.make}</li>
-              <li>owner: {e.Value.model}</li>
-                <li>owner: {e.Value.colour}</li>
+                <li>make: {e.Value.make}</li>
+              <li>model: {e.Value.model}</li>
+                <li>color: {e.Value.colour}</li>
               </ul>
               <li>Time: {e.Timestamp}</li>
               <li>Delete: {e.IsDelete}</li>
