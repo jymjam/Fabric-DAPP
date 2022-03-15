@@ -1,28 +1,40 @@
 import React, { useState, useEffect } from 'react'
 import axio from '../api/axio'
+import './components.css'
 
 function AssetHistory({carID, accessToken}) {
 
   const format = [
     {
-      TxId: "",
+      TxId: "abcdefghijlk",
             Value: {
-                make: "",
-                model: "",
-                colour: "",
-                owner: ""
+                make: "make1",
+                model: "model1",
+                colour: "color1",
+                owner: "owner1"
             },
-            Timestamp: "",
-            IsDelete: ""
+            Timestamp: "today",
+            IsDelete: "false"
+    },
+    {
+      TxId: "uvwxyz",
+            Value: {
+                make: "make2",
+                model: "model2",
+                colour: "color2",
+                owner: "owner2"
+            },
+            Timestamp: "last month",
+            IsDelete: "true"
     }
   ]
   
   const [assetHistory, setAssetHistory] = useState(format)
   const [showHistory, setShowHistory] = useState(false)
 
-  useEffect(() => {
-    // console.log(carID, accessToken, assetHistory, showHistory)
-  }, [carID, accessToken, showHistory])
+  // useEffect(() => {
+  //   // console.log(carID, accessToken, assetHistory, showHistory)
+  // }, [carID, accessToken, showHistory])
 
    axio.interceptors.request.use(
         config => {
@@ -37,7 +49,6 @@ function AssetHistory({carID, accessToken}) {
    e.preventDefault()
     try{
       const response = await axio.get(`/channels/mychannel/chaincodes/fabcar?args=["sedan"]&peer=peer0.org1.example.com&fcn=getHistoryForAsset`)
-      // console.log(...(await response).data.result)
       setAssetHistory(response.data.result)
       console.log("Updated Asset details:", assetHistory)
       setShowHistory(true)
@@ -47,22 +58,31 @@ function AssetHistory({carID, accessToken}) {
     }
   }
 
-  const temp = () => {
-    console.log(assetHistory)
-  }
-
-
   return (
     <div>
       <h2>Asset History</h2>
-      <button onClick={temp}>test btn</button>
       <button onClick={fetchHistory}>fetct History</button>
-        { showHistory && (
-          assetHistory.forEach(element => {
-            <h1>element</h1>
-          })
-        )
-        }
+      <pre>
+        <div>
+          {
+            assetHistory.map(function(e, index){
+              return (
+            <ul className='historyCard' key={e.TxId}>
+              <ul>
+                <li>owner: {e.Value.owner}</li>
+                <li>owner: {e.Value.make}</li>
+              <li>owner: {e.Value.model}</li>
+                <li>owner: {e.Value.colour}</li>
+              </ul>
+              <li>Time: {e.Timestamp}</li>
+              <li>Delete: {e.IsDelete}</li>
+             <hr/>
+             </ul>
+              ) 
+            })
+          }
+        </div>
+      </pre>
     </div>
   )
 }
