@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axio from '../api/axio'
 import './components.css'
 
 
-function AddCar({accessToken}) {
+function AddCar({accessToken, ownerName}) {
 
     const [carID, setCarID] = useState("")
-    const [org, setOrg] = useState(2)
+    const [ownername, setOwnername] = useState(ownerName)
+    const [carInfo, setCarInfo] = useState({
+        make: "",
+        model:"",
+        color:"",
+        owner: ownername 
+    })
     const [err, setErr] = useState(null)
     const [response, setResponse] = useState("")
 
@@ -20,30 +26,39 @@ function AddCar({accessToken}) {
         }
     )
 
-    useEffect(() => {
-        setCarID(carID)
-    }, [carID])
-    
-    const formSubmit = async(e) => {
+    async function formSubmit(e){
         e.preventDefault()
         try{
-            const response = await axio.get(`/channels/mychannel/chaincodes/fabcar`)
-            console.log(response.data)
-            setResponse(JSON.stringify(response.data.result, null,1))
+            const response = await axio.post(`/channels/mychannel/chaincodes/fabcar`, {
+                fcn: "createCar",
+                peers: ["peer0.org1.example.com","peer0.org2.example.com"],
+                chaincodeName:"fabcar",
+                channelName: "mychannel",
+                args: [carID, carInfo.make, carInfo.model, carInfo.owner]
+            })
+            console.log(response.data.value)
         }catch(err){
-            setErr(true)
-            console.error('sumting wong')
+            console.error('sam toong wong wang')
         }
     }
 
   return (
     <div className='home_child_component'>
-        <h1>Query Cars By ID</h1>
+        <h1>Add New Car</h1>
         <form onSubmit={formSubmit}>
             { err && <h4 className='dangerText'>Something went fong</h4>}
             <input type='text' placeholder='enter Car ID' onChange={(e) => setCarID(e.target.value)}/>
-            <button>Query</button>
+            <input type='text' placeholder='Car Maker' onChange={(e) => setCarInfo({...carInfo, make: e.target.value})}/>
+            <input type='text' placeholder='Car Model' onChange={(e) => setCarInfo({...carInfo, model: e.target.value})}/>
+            <input type='text' placeholder='Car color' onChange={(e) => setCarInfo({...carInfo, color: e.target.value})}/>
+            <button>Submit</button>
         </form>
+        <pre>
+            car ID: {carID} ||
+            make: {carInfo.make} |
+            model: {carInfo.model} |
+            color: {carInfo.color} 
+        </pre>
         <div className='display'>
         <pre>
             <h2>{response}</h2>

@@ -21,7 +21,7 @@ function AssetHistory({carID, accessToken}) {
   const [showHistory, setShowHistory] = useState(false)
 
   useEffect(() => {
-    console.log(carID, accessToken, assetHistory, showHistory)
+    // console.log(carID, accessToken, assetHistory, showHistory)
   }, [carID, accessToken, assetHistory, showHistory])
 
    axio.interceptors.request.use(

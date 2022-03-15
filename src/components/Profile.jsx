@@ -5,6 +5,7 @@ function Profile({accessToken}) {
 
     const [username, setUsername] = useState()
     const [orgname, setOrgname] = useState()
+    const [showToken, setShowToken] = useState(false)
 
   function parseJWT(token){
     try{
@@ -26,7 +27,12 @@ function Profile({accessToken}) {
         <div className="profileName"><p>Name: </p><p>{username}</p></div>
         <div className="profileAff"><p>Affiliation:</p> <p>{orgname}</p></div>
 
-        <button onClick={() => {console.log(accessToken)}}>Display Token</button>
+        <button onClick={() => setShowToken(!showToken)}>{!showToken ? (<span>show Token</span>):(<span>Hide Token</span>)}</button>
+        {showToken ? (
+          <pre>
+            {accessToken}
+          </pre>
+        ) : (null)}
     </div>
   )
 }

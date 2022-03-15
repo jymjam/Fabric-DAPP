@@ -46,6 +46,8 @@ function QueryCarByID({accessToken}) {
         <div className='display'>
         <pre>
             <h2>{response}</h2>
+            <ol>
+            </ol>
         </pre>
         </div>
 

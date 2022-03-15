@@ -22,7 +22,6 @@ function QueryCarByID({accessToken}) {
     )
 
     useEffect(() => {
-        setCarID(carID)
     }, [carID])
     
     const formSubmit = async(e) => {
