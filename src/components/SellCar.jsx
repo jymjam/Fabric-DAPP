@@ -44,12 +44,12 @@ function QueryCarByID({accessToken}) {
 
   return (
     <div className='home_child_component'>
-        <h1>Query Cars By ID</h1>
+        <h1>Sell Car</h1>
         <form onSubmit={formSubmit}>
             { err && <h4 className='dangerText'>Something went fong</h4>}
             <input required type='text' placeholder='enter Car ID' onChange={(e) => setCarID(e.target.value)}/>
             <input required type='text' placeholder="New owner's name" onChange={(e) => setOwnerName(e.target.value)}/>
-            <button>Query</button>
+            <button>Sell</button>
         </form>
         <div className='display'>
         <pre>

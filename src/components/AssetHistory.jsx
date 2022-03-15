@@ -7,13 +7,13 @@ function AssetHistory({carID, accessToken}) {
     {
       TxId: "",
             Value: {
-                make: "BBW",
-                model: "fast",
-                colour: "Black",
-                owner: "zen"
+                make: "",
+                model: "",
+                colour: "",
+                owner: ""
             },
-            Timestamp: "2022-03-13 11:35:01.693 +0000 UTC",
-            IsDelete: "false"
+            Timestamp: "",
+            IsDelete: ""
     }
   ]
   
@@ -22,7 +22,7 @@ function AssetHistory({carID, accessToken}) {
 
   useEffect(() => {
     // console.log(carID, accessToken, assetHistory, showHistory)
-  }, [carID, accessToken, assetHistory, showHistory])
+  }, [carID, accessToken, showHistory])
 
    axio.interceptors.request.use(
         config => {
@@ -36,9 +36,11 @@ function AssetHistory({carID, accessToken}) {
  const fetchHistory = async(e) => {
    e.preventDefault()
     try{
-      const response = await axio.get(`/channels/mychannel/chaincodes/fabcar?args=["smallCar"]&peer=peer0.org1.example.com&fcn=getHistoryForAsset`)
-      // setAssetHistory([...response.data.result])
-      console.log(response.data.result)
+      const response = await axio.get(`/channels/mychannel/chaincodes/fabcar?args=["sedan"]&peer=peer0.org1.example.com&fcn=getHistoryForAsset`)
+      // console.log(...(await response).data.result)
+      setAssetHistory(response.data.result)
+      console.log("Updated Asset details:", assetHistory)
+      setShowHistory(true)
     }catch(err){
       console.error("sum ting ven fong")
       setShowHistory(false)
@@ -55,19 +57,11 @@ function AssetHistory({carID, accessToken}) {
       <h2>Asset History</h2>
       <button onClick={temp}>test btn</button>
       <button onClick={fetchHistory}>fetct History</button>
-        {
-          assetHistory.map(e => (
-            <ul key={e.TxId}>
-              <ul>
-                <li>owner: {e.Value.owner}</li>
-                <li>owner: {e.Value.make}</li>
-                <li>owner: {e.Value.model}</li>
-                <li>owner: {e.Value.colour}</li>
-              </ul>
-              <li>Time: {e.Timestamp}</li>
-              <li>Delete: {e.IsDelete}</li>
-            </ul>
-          ))
+        { showHistory && (
+          assetHistory.forEach(element => {
+            <h1>element</h1>
+          })
+        )
         }
     </div>
   )
@@ -76,4 +70,15 @@ function AssetHistory({carID, accessToken}) {
 export default AssetHistory
 
 
-/* */
+          // assetHistory.map(e => (
+          //   <ul key={e.TxId}>
+          //     <ul>
+          //       <li>owner: {e.Value.owner}</li>
+          //       <li>owner: {e.Value.make}</li>
+          //       <li>owner: {e.Value.model}</li>
+          //       <li>owner: {e.Value.colour}</li>
+          //     </ul>
+          //     <li>Time: {e.Timestamp}</li>
+          //     <li>Delete: {e.IsDelete}</li>
+          //   </ul>
+          // ))

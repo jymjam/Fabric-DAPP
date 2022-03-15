@@ -37,7 +37,7 @@ function QueryCarByID({accessToken}) {
 
   return (
     <div className='home_child_component'>
-        <h1>Query Cars By ID</h1>
+        <h1>Find Car</h1>
         <form onSubmit={formSubmit}>
             { err && <h4 className='dangerText'>Something went fong</h4>}
             <input type='text' placeholder='enter Car ID' onChange={(e) => setCarID(e.target.value)}/>

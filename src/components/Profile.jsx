@@ -24,8 +24,8 @@ function Profile({accessToken}) {
   return (
     <div className='home_child_component'>
         <h1>User Profile</h1>
-        <div className="profileName"><p>Name: </p><p>{username}</p></div>
-        <div className="profileAff"><p>Affiliation:</p> <p>{orgname}</p></div>
+        <div className="profileName"><span>Name: </span> {username}</div>
+        <div className="profileAff"><span>Department:</span> {orgname}</div>
 
         <button onClick={() => setShowToken(!showToken)}>{!showToken ? (<span>show Token</span>):(<span>Hide Token</span>)}</button>
         {showToken ? (

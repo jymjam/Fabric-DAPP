@@ -13,7 +13,7 @@ function AddCar({accessToken, ownerName}) {
         color:"",
         owner: ownername 
     })
-    const [err, setErr] = useState(null)
+    const [err, setErr] = useState(false)
     const [response, setResponse] = useState("")
 
     //sends auth bearer token for authorized queries
@@ -29,15 +29,19 @@ function AddCar({accessToken, ownerName}) {
     async function formSubmit(e){
         e.preventDefault()
         try{
-            const response = await axio.post(`/channels/mychannel/chaincodes/fabcar`, {
+            const obj = {
                 fcn: "createCar",
                 peers: ["peer0.org1.example.com","peer0.org2.example.com"],
                 chaincodeName:"fabcar",
                 channelName: "mychannel",
                 args: [carID, carInfo.make, carInfo.model, carInfo.owner]
-            })
-            console.log(response.data.value)
+            }
+            const response = await axio.post(`/channels/mychannel/chaincodes/fabcar`, JSON.stringify(obj))
+            console.log(JSON.stringify(obj))
+            console.log(response)
+            setErr(!response.data.success)
         }catch(err){
+            setErr(true)
             console.error('sam toong wong wang')
         }
     }
@@ -46,7 +50,7 @@ function AddCar({accessToken, ownerName}) {
     <div className='home_child_component'>
         <h1>Add New Car</h1>
         <form onSubmit={formSubmit}>
-            { err && <h4 className='dangerText'>Something went fong</h4>}
+            { err && <h4 className='dangerText'>Something vent fong</h4>}
             <input type='text' placeholder='enter Car ID' onChange={(e) => setCarID(e.target.value)}/>
             <input type='text' placeholder='Car Maker' onChange={(e) => setCarInfo({...carInfo, make: e.target.value})}/>
             <input type='text' placeholder='Car Model' onChange={(e) => setCarInfo({...carInfo, model: e.target.value})}/>
@@ -54,10 +58,10 @@ function AddCar({accessToken, ownerName}) {
             <button>Submit</button>
         </form>
         <pre>
-            car ID: {carID} ||
-            make: {carInfo.make} |
-            model: {carInfo.model} |
-            color: {carInfo.color} 
+            [car ID: {carID} # 
+            make: {carInfo.make} | 
+            model: {carInfo.model} | 
+            color: {carInfo.color} ]
         </pre>
         <div className='display'>
         <pre>
