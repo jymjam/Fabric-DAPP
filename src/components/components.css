@@ -17,6 +17,14 @@
     justify-content: space-between;
 }
 
+.txidC{
+    color: white;
+}
+
+.txidC h3{
+    color: rgb(223, 59, 59);
+}
+
 .tokenBtn{
     margin: 40px;
 }

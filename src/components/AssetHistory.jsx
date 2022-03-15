@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axio from '../api/axio'
 import './components.css'
 
@@ -29,6 +30,7 @@ function AssetHistory({carID, accessToken}) {
     }
   ]
   
+  const navigate = useNavigate()
   const [carid, setCarid] = useState(carID)
   const [assetHistory, setAssetHistory] = useState(format)
 
@@ -60,6 +62,7 @@ function AssetHistory({carID, accessToken}) {
   return (
     <div>
       <h2>Asset History</h2>
+      <input type="text" placeholder='Enter asset name' onChange={ e => setCarid(e.target.value)}/>
       <button className='homebtn' onClick={fetchHistory}>fetct History</button>
       <pre>
         <div>
@@ -67,17 +70,19 @@ function AssetHistory({carID, accessToken}) {
           { assetHistory[0].TxId? (
             assetHistory.map(function(e, index){
               return (
-            <ul className='historyCard' key={e.TxId}>
-              <ul>
-                <li>owner: {e.Value.owner}</li>
-                <li>make: {e.Value.make}</li>
-              <li>model: {e.Value.model}</li>
+                <div onClick={() => {navigate(`/home/${e.TxId}`, {state: e})}} className='historyCard' key={e.TxId}>
+              <ul >
+                <ul>
+                  <li>owner: {e.Value.owner}</li>
+                  <li>make: {e.Value.make}</li>
+                <li>model: {e.Value.model}</li>
                 <li>color: {e.Value.colour}</li>
               </ul>
               <li>Time: {e.Timestamp}</li>
               <li>Delete: {e.IsDelete}</li>
              <hr/>
              </ul>
+            </div>
               ) 
             })
           ):(null)
