@@ -10,6 +10,9 @@ ledger updated via standard concensus protocols
 JWT auth is enabled for users to login.
 
 ---
-Defensive approach & Intrusion prevention
-[] ML based
-[x] Decoy based 
+Defensive approach & Intrusion prevention:
+. [] Cyberpsychology
+. [x] Decoy based
+. [] deception tokens
+. [] honeytokens
+. [] ML based
