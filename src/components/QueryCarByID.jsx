@@ -27,8 +27,9 @@ function QueryCarByID({accessToken}) {
     const formSubmit = async(e) => {
         e.preventDefault()
         try{
-            const response = await axio.get(`/channels/mychannel/chaincodes/fabcar?args=["${carID}"]&peer=peer0.org${org}.example.com&fcn=queryCar`)
+            const response = await axio.get(`/channels/mychannel/chaincodes/fabcar?args=["${carID}"]&hak=true&peer=peer0.org${org}.example.com&fcn=queryCar`)
             setResponse(JSON.stringify(response.data.result, null,1))
+            console.log(response)
         }catch(err){
             setErr(true)
             console.error('sumting wong')

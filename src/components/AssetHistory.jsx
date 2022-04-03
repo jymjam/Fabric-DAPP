@@ -17,17 +17,6 @@ function AssetHistory({carID, accessToken}) {
             Timestamp: "today",
             IsDelete: "false"
     },
-    {
-      TxId: "tx1",
-            Value: {
-                make: "make2",
-                model: "model2",
-                colour: "color2",
-                owner: "owner2"
-            },
-            Timestamp: "last month",
-            IsDelete: "true"
-    }
   ]
   
   const navigate = useNavigate()

@@ -41,7 +41,7 @@ function Home(state) {
   return (
     <div>
         <div className='home_header'>
-        <h1>Fabric Dapp v3.2</h1> <p>Logged In as: {username}</p>
+        <h1>Fabric Dapp v3.2</h1> <p>Logged In as: <span className='userinfo'>{username} | <a href='/login'>logout</a></span></p>
         <div className='homePageBtns'>
             <button className='homebtn' onClick={() => {setPage({profile: true, queryCarByID: false, addCar: false, sellCar: false})}}>User Profile</button>
             <button className='homebtn' onClick={() => {setPage({profile: false, queryCarByID: true, addCar: false, sellCar: false})}}>QueryCarByID</button>

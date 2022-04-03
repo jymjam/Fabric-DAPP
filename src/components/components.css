@@ -53,6 +53,7 @@
 
 .historyCard{
     color: rgb(199, 54, 54);
+    cursor: pointer;
 }
 
 .userinfo{
