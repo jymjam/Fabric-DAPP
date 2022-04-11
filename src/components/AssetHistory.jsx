@@ -40,7 +40,7 @@ function AssetHistory({carID, accessToken}) {
  const fetchHistory = async(e) => {
    e.preventDefault()
     try{
-      const response = await axio.get(`/channels/mychannel/chaincodes/fabcar?args=["${carid}"]&peer=peer0.org1.example.com&fcn=getHistoryForAsset`)
+      const response = await axio.get(`/channels/mychannel/chaincode/fabcar?args=["${carid}"]&peer=peer0.org1.example.com&fcn=getHistoryForAsset`)
       setAssetHistory(response.data.result)
       console.log("Updated Asset details:", assetHistory)
     }catch(err){

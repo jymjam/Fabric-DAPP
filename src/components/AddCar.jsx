@@ -2,16 +2,14 @@ import React, { useState } from 'react'
 import axio from '../api/axio'
 import './components.css'
 
-
 function AddCar({accessToken, ownerName}) {
 
     const [carID, setCarID] = useState("")
-    const [ownername, setOwnername] = useState(ownerName)
     const [carInfo, setCarInfo] = useState({
         make: "",
         model:"",
         color:"",
-        owner: ownername 
+        owner: ownerName 
     })
     const [err, setErr] = useState(false)
     const [response, setResponse] = useState("")
@@ -34,10 +32,10 @@ function AddCar({accessToken, ownerName}) {
                 peers: ["peer0.org1.example.com","peer0.org2.example.com"],
                 chaincodeName:"fabcar",
                 channelName: "mychannel",
-                args: [carID, carInfo.make, carInfo.model, carInfo.owner]
+                args: [carID, carInfo.make, carInfo.model, carInfo.color, carInfo.owner]
             }
-            const response = await axio.post(`/channels/mychannel/chaincodes/fabcar`, JSON.stringify(obj))
-            console.log(JSON.stringify(obj))
+            const response = await axio.post(`/channels/mychannel/chaincodes/fabcar`, JSON.stringify(obj), {headers: {"Content-Type": 'application/json'}})
+            console.log(obj)
             console.log(response)
             setErr(!response.data.success)
         }catch(err){
@@ -56,7 +54,6 @@ function AddCar({accessToken, ownerName}) {
             <input className='homebtn' type='text' placeholder='Car Model' onChange={(e) => setCarInfo({...carInfo, model: e.target.value})}/>
             <input className='homebtn' type='text' placeholder='Car color' onChange={(e) => setCarInfo({...carInfo, color: e.target.value})}/>
             <button className='homebtn'>Submit</button>
-            <button className='homebtn'>Clear</button>
         </form>
         <pre>
             [car ID:<span className='addCarInfo'> {carID}</span> # 

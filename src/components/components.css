@@ -33,6 +33,10 @@
     margin: 65px
 }
 
+.switch{
+    margin: 10px;
+}
+
 .wraptoken{
     overflow: hidden;
     overflow-wrap: break-all;
@@ -40,6 +44,7 @@
 
 .dangerText{
     color: red;
+    text-decoration: wavy;
 }
 
 .profileName{

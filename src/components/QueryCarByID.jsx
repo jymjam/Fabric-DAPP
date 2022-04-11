@@ -3,14 +3,11 @@ import axio from '../api/axio'
 import './components.css'
 
 
-function QueryCarByID({accessToken}) {
+function QueryCarByID({accessToken, orgname, hak}) {
 
     const [carID, setCarID] = useState("")
-    const [org, setOrg] = useState(2)
     const [err, setErr] = useState(null)
     const [response, setResponse] = useState("")
-
-    const [hak, setHak] = useState(false) //testing decoydb integraiton
 
     //sends auth bearer token for authorized queries
     axio.interceptors.request.use(
@@ -29,7 +26,7 @@ function QueryCarByID({accessToken}) {
     const formSubmit = async(e) => {
         e.preventDefault()
         try{
-            const response = await axio.get(`/channels/mychannel/chaincodes/fabcar?args=["${carID}"]&hak=${hak}&peer=peer0.org${org}.example.com&fcn=queryCar`)
+            const response = await axio.get(`/channels/mychannel/chaincodes/fabcar?args=["${carID}"]&hak=${hak}&peer=peer0.org2.example.com&fcn=queryCar`)
             setResponse(JSON.stringify(response.data.result, null,1))
             console.log(response)
         }catch(err){
@@ -44,7 +41,6 @@ function QueryCarByID({accessToken}) {
         <form onSubmit={formSubmit}>
             { err && <h4 className='dangerText'>Something went fong</h4>}
             <input type='text' placeholder='enter Car ID' onChange={(e) => setCarID(e.target.value)}/>
-            <input type="checkbox" name="haksetter" onChange={() => setHak(!hak)} />
             <button className='homebtn'>Query</button>
         </form>
         <div className='display'>
