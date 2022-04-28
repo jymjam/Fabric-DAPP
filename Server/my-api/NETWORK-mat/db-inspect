@@ -1,0 +1,271 @@
+[
+    {
+        "Id": "77804d4a69cb7f66a859fcc7fbeaad67bc08537b0350d308f9168c8ceb8663ae",
+        "Created": "2022-02-16T15:54:40.820468727Z",
+        "Path": "tini",
+        "Args": [
+            "--",
+            "/docker-entrypoint.sh",
+            "/opt/couchdb/bin/couchdb"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 2120,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2022-03-20T12:41:54.172403762Z",
+            "FinishedAt": "2022-03-20T16:32:32.585329948+04:00"
+        },
+        "Image": "sha256:b967e8b98b6b3b57da3f401e3dd907495691ae061c2bf78e0c1cd1c542cfc2f3",
+        "ResolvConfPath": "/var/lib/docker/containers/77804d4a69cb7f66a859fcc7fbeaad67bc08537b0350d308f9168c8ceb8663ae/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/77804d4a69cb7f66a859fcc7fbeaad67bc08537b0350d308f9168c8ceb8663ae/hostname",
+        "HostsPath": "/var/lib/docker/containers/77804d4a69cb7f66a859fcc7fbeaad67bc08537b0350d308f9168c8ceb8663ae/hosts",
+        "LogPath": "/var/lib/docker/containers/77804d4a69cb7f66a859fcc7fbeaad67bc08537b0350d308f9168c8ceb8663ae/77804d4a69cb7f66a859fcc7fbeaad67bc08537b0350d308f9168c8ceb8663ae-json.log",
+        "Name": "/couchdb0",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "artifacts_test",
+            "PortBindings": {
+                "5984/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "5984"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": [],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "shareable",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "KernelMemory": 0,
+            "KernelMemoryTCP": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/1cea90180e3ca4366645082ac61ff291fb2e58ce239710706b19ceb1035815c9-init/diff:/var/lib/docker/overlay2/3a8fc7383481781fb41c0c839f8bc9846a70ac93d60e3750c186879857983448/diff:/var/lib/docker/overlay2/76290038c1658e369afd979b90d98b9d45129b5ec68c8f8138d07c492c6a8432/diff:/var/lib/docker/overlay2/2623e0b83d6a91a0c1b80ce3aba5ed63dabc498a98c9ce84dccc83b6eeee4260/diff:/var/lib/docker/overlay2/9545a7a499182e018da0b4111a4c1890342adf31d508ba9d2feeba345f5e7588/diff:/var/lib/docker/overlay2/806c09630f249fb6c26f99d5a9e22080e7b2434871101c1d714ef3519720ac36/diff:/var/lib/docker/overlay2/cdbedb90e19434b4cae07ed596aa2f1baf3a74245f2fb5b3ef4609e9d07d91f8/diff:/var/lib/docker/overlay2/ff06e7146541f2bb7dbaf0ee5e91b61b7fe9857a649be471a15b6a7478dc9058/diff:/var/lib/docker/overlay2/2b3b7e482f74b90b4df21932cf1cbbfbb3b8236e7f3384757290758c998f9a1a/diff:/var/lib/docker/overlay2/d33cec12a78162e19039468ecd95e477c1a26a23c91c1d7a146e88aeaa3cf6b3/diff:/var/lib/docker/overlay2/2b11562886562e1b88a0db7880440ec87219a535d8e25564cccff2f4e95acddb/diff:/var/lib/docker/overlay2/a7e9d101e7db64deee2cebf87de744c76d78fdf1147e02814a5d36ed49d5317b/diff",
+                "MergedDir": "/var/lib/docker/overlay2/1cea90180e3ca4366645082ac61ff291fb2e58ce239710706b19ceb1035815c9/merged",
+                "UpperDir": "/var/lib/docker/overlay2/1cea90180e3ca4366645082ac61ff291fb2e58ce239710706b19ceb1035815c9/diff",
+                "WorkDir": "/var/lib/docker/overlay2/1cea90180e3ca4366645082ac61ff291fb2e58ce239710706b19ceb1035815c9/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "72a597e3a89dbf602527c8f3dd44fa9c9cd8dfe7789b1b601f63a8930d27dc47",
+                "Source": "/var/lib/docker/volumes/72a597e3a89dbf602527c8f3dd44fa9c9cd8dfe7789b1b601f63a8930d27dc47/_data",
+                "Destination": "/opt/couchdb/data",
+                "Driver": "local",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "volume",
+                "Name": "6a0d9fc588e4f1c4fcb775bfa0188fe80fb22229b4ac6d5c095bc51d76d0aab4",
+                "Source": "/var/lib/docker/volumes/6a0d9fc588e4f1c4fcb775bfa0188fe80fb22229b4ac6d5c095bc51d76d0aab4/_data",
+                "Destination": "/opt/couchdb/etc/local.d",
+                "Driver": "local",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "77804d4a69cb",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "4369/tcp": {},
+                "5984/tcp": {},
+                "9100/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "COUCHDB_USER=",
+                "COUCHDB_PASSWORD=",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.10",
+                "TINI_VERSION=0.16.1",
+                "GPG_KEYS=15DD4F3B8AACA54740EB78C7B7B7C53943ECCEE1   1CFBFA43C19B6DF4A0CA3934669C02FFDF3CEBA3   25BBBAC113C1BFD5AA594A4C9F96B92930380381   4BFCA2B99BADC6F9F105BEC9C5E32E2D6B065BFB   5D680346FAA3E51B29DBCB681015F68F9DA248BC   7BCCEB868313DDA925DF1805ECA5BCB7BB9656B0   C3F4DFAEAD621E1C94523AEEC376457E61D50B88   D2B17F9DA23C0A10991AF2E3D9EE01E47852AEE4   E0AF0A194D55C84E4A19A801CDB0C0F904F4EE9B   29E4F38113DF707D722A6EF91FE9AF73118F1A7C   2EC788AE3F239FA13E82D215CDE711289384AE37",
+                "COUCHDB_VERSION=2.3.1"
+            ],
+            "Cmd": [
+                "/opt/couchdb/bin/couchdb"
+            ],
+            "Image": "hyperledger/fabric-couchdb",
+            "Volumes": {
+                "/opt/couchdb/data": {},
+                "/opt/couchdb/etc/local.d": {}
+            },
+            "WorkingDir": "/opt/couchdb",
+            "Entrypoint": [
+                "tini",
+                "--",
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "f30e47e60f5e37a67d1ff287bafbe7acf4d7d251c4e7b758a1939ed30e8cccc2",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "artifacts",
+                "com.docker.compose.project.config_files": "docker-compose.yaml",
+                "com.docker.compose.project.working_dir": "/home/toor/hyperL/BasicNetwork-2.0/artifacts",
+                "com.docker.compose.service": "couchdb0",
+                "com.docker.compose.version": "1.25.0"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "d466760363140ba365e084d0418970ea3aa412251a4133c27ec4c78a89834b15",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "4369/tcp": null,
+                "5984/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "5984"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "5984"
+                    }
+                ],
+                "9100/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/d46676036314",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "artifacts_test": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "couchdb0",
+                        "77804d4a69cb"
+                    ],
+                    "NetworkID": "5258b61c272b583eb4d8a0076571cc6f69cd881a961e2e752dd08cf5f3675a73",
+                    "EndpointID": "97b2e91dfff0e1813c381bdd2fce677a2fca63229895cbc0c00a46994643ba0d",
+                    "Gateway": "172.24.0.1",
+                    "IPAddress": "172.24.0.4",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:18:00:04",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
